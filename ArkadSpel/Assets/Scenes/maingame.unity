@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &456595796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456595798}
+  - component: {fileID: 456595797}
+  m_Layer: 0
+  m_Name: InvisWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &456595797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456595796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &456595798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456595796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.054, y: 3.99, z: -9.87821}
+  m_LocalScale: {x: 1.6635296, y: 6.8375893, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,8 +455,8 @@ GameObject:
   - component: {fileID: 1279457917}
   - component: {fileID: 1279457916}
   - component: {fileID: 1279457915}
-  - component: {fileID: 1279457914}
   - component: {fileID: 1279457919}
+  - component: {fileID: 1279457920}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -419,24 +464,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1279457914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279457912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc712ddf2b62e384a806aaef93251b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  speed2: 20
-  character: {fileID: 1279457912}
-  point: {x: 0, y: 0, z: 0}
-  jumpHeight: 7
-  isGrounded: 0
 --- !u!65 &1279457915
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -531,6 +558,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1279457920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279457912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc712ddf2b62e384a806aaef93251b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  speed2: 20
+  character: {fileID: 0}
+  point: {x: 0, y: 0, z: 0}
+  jumpHeight: 7
+  isGrounded: 0
 --- !u!1 &1404283294
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 1404283294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7961, y: 1, z: 22.311}
+  m_LocalScale: {x: 1.7961, y: 1, z: 35.663776}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
