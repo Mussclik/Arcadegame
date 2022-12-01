@@ -8,35 +8,65 @@ public class MovementScript1 : MonoBehaviour
     public float speed2 = 20.0f; // i am speed
     public GameObject character;
     public Vector3 point; //position of the point you want to rotate around
-    public float jumpHeight = 7f;
-    public bool isGrounded;
-    private Rigidbody rb;
+    float jumpHeight = 5.0f;
+    bool isGrounded;
+    public Rigidbody rb;
+
     // Start is called before the first frame update
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Another object has entered the trigger");
-    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-
-
     void Update()
     {
+        float ZVelocity = rb.velocity.z;
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.forward * speed * speed * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.forward * speed * speed);
+            Debug.Log(rb.velocity.z);
+            if (ZVelocity < 2)
+            {
+                ZVelocity = 2;
+            }
+            if (ZVelocity > 7)
+            {
+                ZVelocity = 7;
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.back * speed * speed * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.back * speed * speed);
+            if (ZVelocity > -2)
+            {
+                ZVelocity = -2;
+            }
+            if (ZVelocity < -7)
+            {
+                ZVelocity = -7;
+            }
         }
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(Vector3.up * jumpHeight);
+            if (isGrounded == true)
+            {
+                rb.velocity = Vector3.up * jumpHeight;
+                isGrounded = false;
+            }
         }
+    }
+    void FixedUpdate()
+    {
+        if (!isGrounded && jumpHeight > 0)
+        {
+            rb.AddForce(0, jumpHeight, 0);
+        }
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        isGrounded = true;
     }
 }
