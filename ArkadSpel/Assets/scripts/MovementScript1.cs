@@ -11,6 +11,7 @@ public class MovementScript1 : MonoBehaviour
     float jumpHeight = 5.0f;
     bool isGrounded;
     public Rigidbody rb;
+    float zVelocity;
 
     // Start is called before the first frame update
 
@@ -21,30 +22,30 @@ public class MovementScript1 : MonoBehaviour
 
     void Update()
     {
-        float ZVelocity = rb.velocity.z;
+        zVelocity = rb.velocity.z;
         if (Input.GetKey(KeyCode.D))
         {
             rb.AddRelativeForce(Vector3.forward * speed * speed);
             Debug.Log(rb.velocity.z);
-            if (ZVelocity < 2)
+            if (zVelocity < 2)
             {
-                ZVelocity = 2;
+                zVelocity = 2;
             }
-            if (ZVelocity > 7)
+            if (zVelocity > 7)
             {
-                ZVelocity = 7;
+                zVelocity = 7;
             }
         }
         if (Input.GetKey(KeyCode.A))
         {
             rb.AddRelativeForce(Vector3.back * speed * speed);
-            if (ZVelocity > -2)
+            if (zVelocity > -2)
             {
-                ZVelocity = -2;
+                zVelocity = -2;
             }
-            if (ZVelocity < -7)
+            if (zVelocity < -7)
             {
-                ZVelocity = -7;
+                zVelocity = -7;
             }
         }
         if (Input.GetKey(KeyCode.W))
